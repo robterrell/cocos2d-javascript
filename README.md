@@ -13,7 +13,7 @@ Creating a new project
 
 To create a new project you first need to get a copy of cocos2d-javascript. Grab the latest using git
 
-    git clone git://github.com/RyanWilliams/cocos2d-javascript.git
+    git clone git://github.com/ryanwilliams/cocos2d-javascript.git
 
 To create your initial project simply navigate to the cocos2d-javascript directory and run
 

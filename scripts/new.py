@@ -146,7 +146,7 @@ def main():
         print "Creating cocos2d git submodule"
         os.chdir(project_path)
         subprocess.call(['git', 'init'])
-        subprocess.call(['git', 'submodule', 'add', 'git://github.com/RyanWilliams/cocos2d-javascript.git', 'cocos2d'])
+        subprocess.call(['git', 'submodule', 'add', 'git://github.com/ryanwilliams/cocos2d-javascript.git', 'cocos2d'])
     else:
         print "Copying cocos2d"
         cocos_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
