@@ -133,9 +133,8 @@ var TMXLayer = SpriteBatchNode.extend(/** @lends cocos.nodes.TMXLayer# */{
         return ret;
     },
     positionForOrthoAt: function(pos) {
-        var overlap = this.mapTileSize.height - this.tileset.tileSize.height;
         var x = Math.floor(pos.x * this.mapTileSize.width + 0.49);
-        var y = Math.floor(pos.y * this.mapTileSize.height + 0.49) + overlap;
+        var y = Math.floor((this.get('layerSize').height - pos.y -1) * this.mapTileSize.height + 0.49);
         return ccp(x,y);
     },
 

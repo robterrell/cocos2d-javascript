@@ -67,14 +67,14 @@ var SpriteDemo = nodes.Layer.extend({
 
         var label = nodes.Label.create({string: this.get('title'), fontName: 'Arial', fontSize: 26});
         this.addChild({child: label, z:1});
-        label.set('position', ccp(s.width / 2, 50));
+        label.set('position', ccp(s.width / 2, s.height - 50));
 
 
         var subtitle = this.get('subtitle');
         if (subtitle) {
             var l = nodes.Label.create({string:subtitle, fontName: "Thonburi", fontSize: 16});
             this.addChild({child: l, z:1});
-            l.set('position', ccp(s.width/2, 80));
+            l.set('position', ccp(s.width/2, s.height - 80));
         }
 
 
@@ -85,9 +85,9 @@ var SpriteDemo = nodes.Layer.extend({
         var menu = nodes.Menu.create({items: [item1, item2, item3]});
 
         menu.set('position', ccp(0,0));
-        item1.set('position', ccp(s.width /2 -100, s.height -30));
-        item2.set('position', ccp(s.width /2,      s.height -30));
-        item3.set('position', ccp(s.width /2 +100, s.height -30));
+        item1.set('position', ccp(s.width /2 -100, 30));
+        item2.set('position', ccp(s.width /2,      30));
+        item3.set('position', ccp(s.width /2 +100, 30));
         this.addChild({child: menu, z:1});
     },
 
@@ -172,7 +172,7 @@ var Sprite1 = SpriteDemo.extend(/** @lends Sprite1.prototype# */{
         
     },
     mouseUp: function(event) {
-        var location = cocos.Director.get('sharedDirector').convertEventToCanvas(event);
+        var location = event.locationInCanvas;
         this.addNewSprite(location);
 
         return true;

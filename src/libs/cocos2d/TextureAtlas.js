@@ -70,10 +70,11 @@ var TextureAtlas = BObject.extend(/** @lends cocos.TextureAtlas# */{
             sw = quad.textureRect.size.width, 
             sh = quad.textureRect.size.height;
 
+        // Flip the Y axis so origin is bottom left
         var dx = quad.drawRect.origin.x,
-            dy = quad.drawRect.origin.y,
+            dy = quad.drawRect.origin.y - quad.drawRect.size.height,
             dw = quad.drawRect.size.width, 
-            dh = quad.drawRect.size.height;
+            dh = -quad.drawRect.size.height;
 
         var scaleX = 1;
         var scaleY = 1;

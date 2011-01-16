@@ -184,6 +184,7 @@ var Sprite = Node.extend(/** @lends cocos.nodes.Sprite# */{
         this.quad.textureRect = util.copy(this.rect);
         this.quad.drawRect.origin = util.copy(offsetPosition);
         this.quad.drawRect.size = util.copy(this.rect.size);
+
         if (this.flipX) {
             this.quad.drawRect.size.width *= -1;
             this.quad.drawRect.origin.x = -this.rect.size.width;

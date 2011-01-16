@@ -46,6 +46,12 @@ var Label = Node.extend(/** @lends cocos.nodes.Label# */{
     },
 
     draw: function(context) {
+        context.save();
+
+        // Flip Y axis
+        context.scale(1, -1);
+        context.translate(0, -this.get('fontSize'));
+
         context.fillStyle = this.get('fontColor');
         context.font = this.get('font');
         context.textBaseline = 'top';
@@ -54,6 +60,7 @@ var Label = Node.extend(/** @lends cocos.nodes.Label# */{
         } else if (context.mozDrawText) {
             context.mozDrawText(this.get('string'));
         }
+        context.restore();
     },
 
     /**

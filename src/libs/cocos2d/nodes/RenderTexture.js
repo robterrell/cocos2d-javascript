@@ -40,6 +40,7 @@ var RenderTexture = Node.extend(/** @lends cocos.nodes.RenderTexture# */{
         this.set('anchorPoint', ccp(0, 0));
         this.sprite.set('anchorPoint', ccp(0, 0));
 
+        this.sprite.set('flipY', true);
 
 
     },

@@ -51,14 +51,14 @@ var TileDemo = nodes.Layer.extend({
 
         var label = nodes.Label.create({string: this.get('title'), fontName: 'Arial', fontSize: 26});
         this.addChild({child: label, z:1});
-        label.set('position', ccp(s.width / 2, 50));
+        label.set('position', ccp(s.width / 2, s.height - 50));
 
 
         var subtitle = this.get('subtitle');
         if (subtitle) {
             var l = nodes.Label.create({string:subtitle, fontName: "Thonburi", fontSize: 16});
             this.addChild({child: l, z:1});
-            l.set('position', ccp(s.width/2, 80));
+            l.set('position', ccp(s.width/2, s.height - 80));
         }
 
 
@@ -69,9 +69,9 @@ var TileDemo = nodes.Layer.extend({
         var menu = nodes.Menu.create({items: [item1, item2, item3]});
 
         menu.set('position', ccp(0,0));
-        item1.set('position', ccp(s.width /2 -100, s.height -30));
-        item2.set('position', ccp(s.width /2,      s.height -30));
-        item3.set('position', ccp(s.width /2 +100, s.height -30));
+        item1.set('position', ccp(s.width /2 -100, 30));
+        item2.set('position', ccp(s.width /2,      30));
+        item3.set('position', ccp(s.width /2 +100, 30));
         this.addChild({child: menu, z:1});
     },
 
@@ -122,11 +122,6 @@ var TMXOrthoTest2 = TileDemo.extend({
         this.addChild({child: map, z: 0, tag: kTagTileMap});
 
         var s = cocos.Director.get('sharedDirector').get('winSize');
-
-        // Adjust anchor and position to bottom left so it renders like cocos2d-iphone
-        map.set('anchorPoint', ccp(0, 1));
-
-        map.set('position', ccp(0, s.height));
 
         map.runAction(actions.ScaleBy.create({duration: 2, scale: 0.5}));
     }

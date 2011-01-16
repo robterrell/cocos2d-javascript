@@ -60,6 +60,8 @@ var Director = BObject.extend(/** @lends cocos.Director# */{
         canvas.setAttribute('height', view.clientHeight);
 
         var context = canvas.getContext('2d');
+         context.scale(1, -1);
+         context.translate(0, -view.clientHeight);
         this.set('context', context);
 
         view.appendChild(canvas);
@@ -277,7 +279,11 @@ var Director = BObject.extend(/** @lends cocos.Director# */{
             y += o.offsetTop - o.scrollTop;
         }
 
-        return geo.ccpSub(evt.locationInWindow, ccp(x, y));
+
+        var l = geo.ccpSub(evt.locationInWindow, ccp(x, y));
+        l.y = this.canvas.clientHeight - l.y;
+
+        return l;
     },
 
     showFPS: function() {
@@ -303,7 +309,7 @@ var Director = BObject.extend(/** @lends cocos.Director# */{
 		
 
         var s = this.get('winSize');
-        this._fpsLabel.set('position', ccp(10, s.height - 10));
+        this._fpsLabel.set('position', ccp(10, 20));
 
         this._fpsLabel.visit(this.get('context'));
     }

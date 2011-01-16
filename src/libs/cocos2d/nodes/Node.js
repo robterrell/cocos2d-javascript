@@ -305,7 +305,7 @@ var Node = BObject.extend(/** @lends cocos.nodes.Node# */{
         }
 
         // Rotate
-        context.rotate(geom.degressToRadians(this.get('rotation')));
+        context.rotate(geom.degressToRadians(-this.get('rotation')));
 
         // Scale
         context.scale(this.scaleX, this.scaleY);
